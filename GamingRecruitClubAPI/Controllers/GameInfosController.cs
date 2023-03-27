@@ -1,12 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GamingRecruitClubAPI.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GamingRecruitClubAPI.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class GameInfosController : Controller
     {
-        public IActionResult Index()
+        private readonly IGameInfosService _gameInfosService;
+        private readonly ILogger<GameInfosController> _logger;
+        public GameInfosController(IGameInfosService gameInfosService, ILogger<GameInfosController> logger)
         {
-            return View();
+            _gameInfosService = gameInfosService;
+            _logger = logger;
         }
     }
 }

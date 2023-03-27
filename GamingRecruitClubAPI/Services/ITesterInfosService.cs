@@ -1,6 +1,10 @@
-﻿namespace GamingRecruitClubAPI.Services
+﻿using GamingRecruitClubAPI.DTOs;
+
+namespace GamingRecruitClubAPI.Services
 {
     public interface ITesterInfosService
     {
+        public Task <IEnumerable<TesterInfoDTO>> GetTesterInfosAsync ();
+        public Task <TesterInfoDTO> GetTesterInfoByIdAsync (Guid id);
     }
 }

@@ -1,4 +1,5 @@
-﻿using GamingRecruitClubAPI.Repositories;
+﻿using GamingRecruitClubAPI.DTOs;
+using GamingRecruitClubAPI.Repositories;
 
 namespace GamingRecruitClubAPI.Services
 {
@@ -8,6 +9,16 @@ namespace GamingRecruitClubAPI.Services
         public TesterInfosService(ITesterInfosRepository repository)
         {
             _repository = repository;
+        }
+
+        public async Task<TesterInfoDTO> GetTesterInfoByIdAsync(Guid id)
+        {
+            return await _repository.GetTesterInfoByIdAsync(id);
+        }
+
+        public async Task<IEnumerable<TesterInfoDTO>> GetTesterInfosAsync()
+        {
+            return await _repository.GetTesterInfosAsync();
         }
     }
 }
