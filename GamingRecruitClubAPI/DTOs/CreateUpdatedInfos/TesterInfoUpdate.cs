@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace GamingRecruitClubAPI.DTOs
+namespace GamingRecruitClubAPI.DTOs.CreateUpdatedInfos
 {
-    public class TesterInfoDTO
+    public class TesterInfoUpdate
     {
         [Key]
         public Guid TesterID { get; set; }

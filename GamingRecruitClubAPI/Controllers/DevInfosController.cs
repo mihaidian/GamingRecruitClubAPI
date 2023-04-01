@@ -1,4 +1,6 @@
-﻿using GamingRecruitClubAPI.Helpers;
+﻿using GamingRecruitClubAPI.DTOs;
+using GamingRecruitClubAPI.Helpers;
+using GamingRecruitClubAPI.Models;
 using GamingRecruitClubAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -54,7 +56,32 @@ namespace GamingRecruitClubAPI.Controllers
                 return StatusCode((int)(HttpStatusCode.InternalServerError), ex.Message);
             }
         }
-            
+        [HttpPost]
+        public async Task<IActionResult> UploadDevAsync([FromBody] DevInfoDTO newDev)
+        {
+            try
+            {
+                _logger.LogInformation(" Upload Developer started!");
+                if (newDev == null)
+                {
+                    return BadRequest(ErrorMessagesEnum.BadRequest);
+                }
+                await _devsService.UploadDeveloperAsync(newDev);
+                return Ok(SuccesMessagesEnum.ElementSuccesfullyCreated);
+            }
+            catch (ModelValidationException ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return BadRequest(ex.Message);
+            }
+
+            catch (Exception ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return StatusCode((int)(HttpStatusCode.InternalServerError), ex.Message);
+            }
         }
+
+    }
     }
 

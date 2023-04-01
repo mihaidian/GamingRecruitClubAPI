@@ -17,6 +17,11 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 
 builder.Services.AddTransient<IDevInfosRepository, DevInfosRepository>();
 builder.Services.AddTransient<IDevInfosService, DevInfosService>();
+builder.Services.AddTransient<IGameInfosRepository, GameInfosRepository>();
+builder.Services.AddTransient<IGameInfosService, GameInfosService>();
+builder.Services.AddTransient<ITesterInfosRepository, TesterInfosRepository>();
+builder.Services.AddTransient<ITesterInfosService, TesterInfosService>();
+
 
 
 

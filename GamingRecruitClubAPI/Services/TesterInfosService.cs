@@ -20,5 +20,10 @@ namespace GamingRecruitClubAPI.Services
         {
             return await _repository.GetTesterInfosAsync();
         }
+
+        public async Task UploadTesterAsync(TesterInfoDTO newTester)
+        {
+            await _repository.UploadTesterAsync(newTester);
+        }
     }
 }

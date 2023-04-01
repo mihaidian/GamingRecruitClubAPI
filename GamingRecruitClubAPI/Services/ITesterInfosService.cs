@@ -6,5 +6,6 @@ namespace GamingRecruitClubAPI.Services
     {
         public Task <IEnumerable<TesterInfoDTO>> GetTesterInfosAsync ();
         public Task <TesterInfoDTO> GetTesterInfoByIdAsync (Guid id);
+        public Task UploadTesterAsync(TesterInfoDTO newTester);
     }
 }

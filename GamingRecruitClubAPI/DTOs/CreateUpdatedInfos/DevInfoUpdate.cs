@@ -1,23 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
-namespace GamingRecruitClubAPI.DTOs
+namespace GamingRecruitClubAPI.DTOs.CreateUpdatedInfos
 {
-    public class TesterInfoDTO
+    public class DevInfoUpdate
     {
         [Key]
-        public Guid TesterID { get; set; }
+        public Guid DevID { get; set; }
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
-        [Required]
         [Display(Name = "Last Name")]
+        [Required]
         public string LastName { get; set; }
+        [Display(Name = "Developer Experience (In years)")]
         [Required]
-        [Display(Name = "Tested Before")]
-        public bool TestedBefore { get; set; }
-        [Required]
+        public int DevExperienceInYears { get; set; }
         [Display(Name = "Game Choice")]
+        [Required]
         public string GameChoice { get; set; }
         [Required]
         public string Email { get; set; }

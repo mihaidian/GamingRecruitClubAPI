@@ -6,5 +6,6 @@ namespace GamingRecruitClubAPI.Services
     {
         public Task <IEnumerable<GameInfoDTO>> GetGameInfosAsync ();
         public Task <GameInfoDTO> GetGameInfoByIdAsync (Guid id);
+        public Task UploadGameAsync(GameInfoDTO newGame);
     }
 }

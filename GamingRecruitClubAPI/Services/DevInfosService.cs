@@ -18,5 +18,10 @@ namespace GamingRecruitClubAPI.Services
         {
             return await _repository.GetDevInfoByIdAsync(id);
         }
+
+        public async Task UploadDeveloperAsync(DevInfoDTO newdev)
+        {
+            await _repository.UploadDeveloperAsync(newdev);
+        }
     }
 }

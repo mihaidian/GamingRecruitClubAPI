@@ -1,5 +1,6 @@
 ﻿using GamingRecruitClubAPI.DataContext;
 using GamingRecruitClubAPI.DTOs;
+using GamingRecruitClubAPI.DTOs.CreateUpdatedInfos;
 using Microsoft.EntityFrameworkCore;
 
 namespace GamingRecruitClubAPI.Repositories
@@ -20,6 +21,18 @@ namespace GamingRecruitClubAPI.Repositories
         public async Task<IEnumerable<GameInfoDTO>> GetGameInfosAsync()
         {
             return await _context.Games.ToListAsync();
+        }
+
+        public Task<GameInfoUpdate> UpdateGameAsync(Guid id, GameInfoUpdate updatedGame)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task UploadGameAsync(GameInfoDTO game)
+        {
+            game.GameID=Guid.NewGuid();
+            _context.Games.Add(game);
+            await _context.SaveChangesAsync();
         }
     }
 }

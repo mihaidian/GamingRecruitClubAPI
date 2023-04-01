@@ -1,4 +1,5 @@
 ﻿using GamingRecruitClubAPI.DTOs;
+using GamingRecruitClubAPI.Helpers;
 using GamingRecruitClubAPI.Repositories;
 
 namespace GamingRecruitClubAPI.Services
@@ -19,6 +20,12 @@ namespace GamingRecruitClubAPI.Services
         public async Task<IEnumerable<GameInfoDTO>> GetGameInfosAsync()
         {
             return await _repository.GetGameInfosAsync();
+        }
+
+        public async Task UploadGameAsync(GameInfoDTO newGame)
+        {
+            ValidationFunctions.ExceptionsWhenDateIsNotValid(newGame.AddedOn, newGame.DeadLine);
+            await _repository.UploadGameAsync(newGame);
         }
     }
 }
