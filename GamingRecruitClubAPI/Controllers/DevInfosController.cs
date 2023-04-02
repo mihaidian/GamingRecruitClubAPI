@@ -113,7 +113,37 @@ namespace GamingRecruitClubAPI.Controllers
             }
 
         }
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchDeveloper([FromRoute] Guid id, [FromBody] DevInfoUpdate dev)
+        {
+            try
+            {
+                _logger.LogInformation("Update started");
+                if (dev == null)
+                {
+                    return BadRequest(ErrorMessagesEnum.BadRequest);
+                }
+                DevInfoUpdate updatedDev = await _devsService.UpdatePartiallyDeveloperAsync(id, dev);
+                if (updatedDev == null)
+                {
+                    return StatusCode((int)(HttpStatusCode.NoContent), ErrorMessagesEnum.NoElementFound);
 
+                }
+                return Ok(SuccesMessagesEnum.ElementSuccesfullyUpdated);
+            }
+
+            catch (ModelValidationException ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return StatusCode((int)(HttpStatusCode.InternalServerError), ex.Message);
+            }
+
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDeveloperAsync([FromRoute] Guid id)

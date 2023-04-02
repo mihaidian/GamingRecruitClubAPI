@@ -18,8 +18,8 @@ namespace GamingRecruitClubAPI.DTOs
         public bool TestedBefore { get; set; }
         [Required]
         [Display(Name = "Game Choice")]
-        public string GameChoice { get; set; }
+        public string? GameChoice { get; set; }
         [Required]
-        public string Email { get; set; }
+        public string? Email { get; set; }
     }
 }

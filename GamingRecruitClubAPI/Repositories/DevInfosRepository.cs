@@ -3,6 +3,7 @@ using GamingRecruitClubAPI.DataContext;
 using GamingRecruitClubAPI.DTOs;
 using GamingRecruitClubAPI.DTOs.CreateUpdatedInfos;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Metrics;
 
 namespace GamingRecruitClubAPI.Repositories
 {
@@ -48,9 +49,24 @@ newDev.DevID=Guid.NewGuid();
             return await _context.Devs.CountAsync(a=>a.DevID==id) > 0;
         }
 
-        public Task<DevInfoUpdate> UpdatePartiallyDeveloperAsync(Guid id, DevInfoUpdate dev)
+        public async Task<DevInfoUpdate> UpdatePartiallyDeveloperAsync(Guid id, DevInfoUpdate dev)
         {
-            throw new NotImplementedException();
+            var devFromDb= await GetDevInfoByIdAsync(id);
+            if(devFromDb==null)
+            {
+                return null;
+            }
+            if (!string.IsNullOrEmpty(dev.FirstName) && dev.FirstName != devFromDb.FirstName)
+            {
+                devFromDb.FirstName = dev.FirstName;
+            }
+            if (!string.IsNullOrEmpty(dev.LastName) && dev.LastName != devFromDb.LastName)
+            {
+                devFromDb.LastName = dev.LastName;
+            }
+            _context.Devs.Update(devFromDb);
+            await _context.SaveChangesAsync();
+            return dev;
         }
 
         public async Task<bool> DeleteDeveloperAsync(Guid id)

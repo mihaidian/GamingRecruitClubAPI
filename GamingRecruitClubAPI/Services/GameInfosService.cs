@@ -36,9 +36,10 @@ namespace GamingRecruitClubAPI.Services
             return await _repository.UpdateGameAsync(id,game);
         }
 
-        public Task<GameInfoUpdate> UpdatePartiallyGameAsync(Guid id, GameInfoUpdate game)
+        public async Task<GameInfoUpdate> UpdatePartiallyGameAsync(Guid id, GameInfoUpdate game)
         {
-            throw new NotImplementedException();
+            ValidationFunctions.ExceptionsWhenDateIsNotValid(game.AddedOn, game.DeadLine);
+            return await _repository.UpdatePartiallyGameAsync(id, game);
         }
 
         public async Task<bool> DeleteGameAsync(Guid id)

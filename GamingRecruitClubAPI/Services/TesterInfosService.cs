@@ -31,9 +31,9 @@ namespace GamingRecruitClubAPI.Services
             return await _repository.UpdateTesterAsync(id, tester);
         }
 
-        public Task<TesterInfoUpdate> UpdatePartiallyTesterAsync(Guid id, TesterInfoUpdate tester)
+        public async Task<TesterInfoUpdate> UpdatePartiallyTesterAsync(Guid id, TesterInfoUpdate tester)
         {
-            throw new NotImplementedException();
+            return await _repository.UpdatePartiallyTesterAsync(id, tester);
         }
 
         public async Task<bool> DeleteTesterAsync(Guid id)

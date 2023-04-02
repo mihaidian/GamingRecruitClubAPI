@@ -48,9 +48,24 @@ namespace GamingRecruitClubAPI.Repositories
             return await _context.Testers.CountAsync(a => a.TesterID == id) > 0;
         }
 
-        public Task<TesterInfoUpdate> UpdatePartiallyTesterAsync(Guid id, TesterInfoUpdate tester)
+        public async Task<TesterInfoUpdate> UpdatePartiallyTesterAsync(Guid id, TesterInfoUpdate tester)
         {
-            throw new NotImplementedException();
+            var testerFromDb=await GetTesterInfoByIdAsync(id);
+            if(testerFromDb == null) 
+            {
+                return null;
+            }
+            if (!string.IsNullOrEmpty(tester.FirstName) && tester.FirstName != testerFromDb.FirstName)
+            {
+                testerFromDb.FirstName = tester.FirstName;
+            }
+            if (!string.IsNullOrEmpty(tester.LastName) && tester.LastName != testerFromDb.LastName)
+            {
+                testerFromDb.LastName = tester.LastName;
+            }
+            _context.Testers.Update(testerFromDb);
+            await _context.SaveChangesAsync();
+            return tester;
         }
 
         public async Task<bool> DeleteTesterAsync(Guid id)

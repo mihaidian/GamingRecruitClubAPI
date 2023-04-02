@@ -113,6 +113,36 @@ namespace GamingRecruitClubAPI.Controllers
                 return StatusCode((int)(HttpStatusCode.InternalServerError), ex.Message);
             }
         }
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchTester([FromRoute] Guid id, [FromBody] TesterInfoUpdate tester)
+        {
+            try
+            {
+                _logger.LogInformation("Update started");
+                if (tester == null)
+                {
+                    return BadRequest(ErrorMessagesEnum.BadRequest);
+                }
+                TesterInfoUpdate updatedTester = await _testerInfosService.UpdatePartiallyTesterAsync(id, tester);
+                if (updatedTester == null)
+                {
+                    return StatusCode((int)(HttpStatusCode.NoContent), ErrorMessagesEnum.NoElementFound);
+
+                }
+                return Ok(SuccesMessagesEnum.ElementSuccesfullyUpdated);
+            }
+
+            catch (ModelValidationException ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return StatusCode((int)(HttpStatusCode.InternalServerError), ex.Message);
+            }
+        }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTesterAsync([FromRoute] Guid id)
         {

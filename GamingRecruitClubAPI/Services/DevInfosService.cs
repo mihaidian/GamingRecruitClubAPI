@@ -29,9 +29,9 @@ namespace GamingRecruitClubAPI.Services
             return await _repository.UpdateDeveloperAsync(id, dev);
         }
 
-        public Task<DevInfoUpdate> UpdatePartiallyDeveloperAsync(Guid id, DevInfoUpdate dev)
+        public async Task<DevInfoUpdate> UpdatePartiallyDeveloperAsync(Guid id, DevInfoUpdate dev)
         {
-            throw new NotImplementedException();
+            return await _repository.UpdatePartiallyDeveloperAsync(id, dev);
         }
 
         public async Task<bool> DeleteDeveloperAsync(Guid id)

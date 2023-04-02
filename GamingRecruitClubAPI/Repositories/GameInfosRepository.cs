@@ -3,6 +3,7 @@ using GamingRecruitClubAPI.DataContext;
 using GamingRecruitClubAPI.DTOs;
 using GamingRecruitClubAPI.DTOs.CreateUpdatedInfos;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.Metrics;
 
 namespace GamingRecruitClubAPI.Repositories
 {
@@ -49,9 +50,20 @@ namespace GamingRecruitClubAPI.Repositories
             return await _context.Games.CountAsync(a => a.GameID == id) > 0;
         }
 
-        public Task<GameInfoUpdate> UpdatePartiallyGameAsync(Guid id, GameInfoUpdate game)
+        public async Task<GameInfoUpdate> UpdatePartiallyGameAsync(Guid id, GameInfoUpdate game)
         {
-            throw new NotImplementedException();
+            var gameFromDb= await GetGameInfoByIdAsync(id);
+            if(gameFromDb==null)
+            {
+                return null;
+            }
+            if (!string.IsNullOrEmpty(game.GameName) && game.GameName != gameFromDb.GameName)
+            {
+                gameFromDb.GameName = game.GameName;
+            }
+            _context.Games.Update(gameFromDb);
+            await _context.SaveChangesAsync();
+            return game;
         }
 
         public async Task<bool> DeleteGameAsync(Guid id)
