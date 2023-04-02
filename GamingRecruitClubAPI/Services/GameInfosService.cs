@@ -1,4 +1,5 @@
 ﻿using GamingRecruitClubAPI.DTOs;
+using GamingRecruitClubAPI.DTOs.CreateUpdatedInfos;
 using GamingRecruitClubAPI.Helpers;
 using GamingRecruitClubAPI.Repositories;
 
@@ -22,10 +23,27 @@ namespace GamingRecruitClubAPI.Services
             return await _repository.GetGameInfosAsync();
         }
 
+
+
         public async Task UploadGameAsync(GameInfoDTO newGame)
         {
             ValidationFunctions.ExceptionsWhenDateIsNotValid(newGame.AddedOn, newGame.DeadLine);
             await _repository.UploadGameAsync(newGame);
+        }
+        public async Task<GameInfoUpdate> UpdateGameAsync(Guid id, GameInfoUpdate game)
+        {
+            ValidationFunctions.ExceptionsWhenDateIsNotValid(game.AddedOn, game.DeadLine);
+            return await _repository.UpdateGameAsync(id,game);
+        }
+
+        public Task<GameInfoUpdate> UpdatePartiallyGameAsync(Guid id, GameInfoUpdate game)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteGameAsync(Guid id)
+        {
+            return await _repository.DeleteGameAsync(id);
         }
     }
 }

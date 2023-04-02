@@ -1,4 +1,5 @@
 ﻿using GamingRecruitClubAPI.DTOs;
+using GamingRecruitClubAPI.DTOs.CreateUpdatedInfos;
 using GamingRecruitClubAPI.Helpers;
 using GamingRecruitClubAPI.Models;
 using GamingRecruitClubAPI.Services;
@@ -81,7 +82,58 @@ namespace GamingRecruitClubAPI.Controllers
                 return StatusCode((int)(HttpStatusCode.InternalServerError), ex.Message);
             }
         }
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutDeveloper([FromRoute] Guid id, [FromBody] DevInfoUpdate dev)
+        {
+            try
+            {
+                _logger.LogInformation("Update started");
+                if (dev == null)
+                {
+                    return BadRequest(ErrorMessagesEnum.BadRequest);
+                }
+                DevInfoUpdate updatedDev = await _devsService.UpdateDeveloperAsync(id, dev);
+                if (updatedDev== null)
+                {
+                    return StatusCode((int)(HttpStatusCode.NoContent), ErrorMessagesEnum.NoElementFound);
 
+                }
+                return Ok(SuccesMessagesEnum.ElementSuccesfullyUpdated);
+            }
+
+            catch (ModelValidationException ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return StatusCode((int)(HttpStatusCode.InternalServerError), ex.Message);
+            }
+
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteDeveloperAsync([FromRoute] Guid id)
+        {
+            try
+            {
+                _logger.LogInformation("Delete Developer started");
+                bool result = await _devsService.DeleteDeveloperAsync(id);
+                if (result)
+                {
+                    return Ok(SuccesMessagesEnum.ElementSuccesfullyDeleted);
+                }
+                return BadRequest(ErrorMessagesEnum.NoElementFound);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Validation exception error: {ex.Message}");
+                return StatusCode((int)(HttpStatusCode.InternalServerError), ex.Message);
+            }
+        }
     }
     }
 

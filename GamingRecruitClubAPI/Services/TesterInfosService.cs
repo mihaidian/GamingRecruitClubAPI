@@ -1,4 +1,5 @@
 ﻿using GamingRecruitClubAPI.DTOs;
+using GamingRecruitClubAPI.DTOs.CreateUpdatedInfos;
 using GamingRecruitClubAPI.Repositories;
 
 namespace GamingRecruitClubAPI.Services
@@ -24,6 +25,20 @@ namespace GamingRecruitClubAPI.Services
         public async Task UploadTesterAsync(TesterInfoDTO newTester)
         {
             await _repository.UploadTesterAsync(newTester);
+        }
+        public async Task<TesterInfoUpdate> UpdateTesterAsync(Guid id, TesterInfoUpdate tester)
+        {
+            return await _repository.UpdateTesterAsync(id, tester);
+        }
+
+        public Task<TesterInfoUpdate> UpdatePartiallyTesterAsync(Guid id, TesterInfoUpdate tester)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteTesterAsync(Guid id)
+        {
+            return await _repository.DeleteTesterAsync(id);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GamingRecruitClubAPI.DTOs;
+using GamingRecruitClubAPI.DTOs.CreateUpdatedInfos;
 
 namespace GamingRecruitClubAPI.Services
 {
@@ -7,5 +8,8 @@ namespace GamingRecruitClubAPI.Services
         public Task <IEnumerable<TesterInfoDTO>> GetTesterInfosAsync ();
         public Task <TesterInfoDTO> GetTesterInfoByIdAsync (Guid id);
         public Task UploadTesterAsync(TesterInfoDTO newTester);
+        public Task <TesterInfoUpdate> UpdateTesterAsync(Guid id, TesterInfoUpdate tester);
+        public Task<TesterInfoUpdate> UpdatePartiallyTesterAsync(Guid id, TesterInfoUpdate tester);
+        public Task<bool> DeleteTesterAsync(Guid id);
     }
 }

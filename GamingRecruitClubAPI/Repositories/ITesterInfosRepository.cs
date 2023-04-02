@@ -8,6 +8,8 @@ namespace GamingRecruitClubAPI.Repositories
         public Task<IEnumerable<TesterInfoDTO>> GetTesterInfosAsync();
         public Task <TesterInfoDTO> GetTesterInfoByIdAsync(Guid id);
         public Task UploadTesterAsync(TesterInfoDTO tester);
-        public Task <TesterInfoUpdate> UpdateTesterAsync(Guid id,TesterInfoUpdate  tester);
+        public Task <TesterInfoUpdate> UpdateTesterAsync(Guid id,TesterInfoUpdate tester);
+        public Task<TesterInfoUpdate> UpdatePartiallyTesterAsync(Guid id, TesterInfoUpdate tester);
+        public Task<bool> DeleteTesterAsync(Guid id);
     }
 }

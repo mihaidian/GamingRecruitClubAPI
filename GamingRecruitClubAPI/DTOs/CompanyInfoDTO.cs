@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GamingRecruitAPI.DTOs
+namespace GamingRecruitClubAPI.DTOs
 
 {
     public class CompanyInfoDTO

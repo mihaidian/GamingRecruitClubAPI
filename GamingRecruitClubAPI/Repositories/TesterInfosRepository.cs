@@ -1,4 +1,5 @@
-﻿using GamingRecruitClubAPI.DataContext;
+﻿using AutoMapper;
+using GamingRecruitClubAPI.DataContext;
 using GamingRecruitClubAPI.DTOs;
 using GamingRecruitClubAPI.DTOs.CreateUpdatedInfos;
 using Microsoft.EntityFrameworkCore;
@@ -8,9 +9,11 @@ namespace GamingRecruitClubAPI.Repositories
     public class TesterInfosRepository:ITesterInfosRepository
     {
         private readonly GamingClubDataContext _context;
-        public TesterInfosRepository(GamingClubDataContext context)
+        private readonly IMapper _mapper;
+        public TesterInfosRepository(GamingClubDataContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         public async Task<IEnumerable<TesterInfoDTO>> GetTesterInfosAsync()
         {
@@ -28,9 +31,38 @@ namespace GamingRecruitClubAPI.Repositories
 
         }
 
-        public Task<TesterInfoUpdate> UpdateTesterAsync(Guid id, TesterInfoUpdate tester)
+        public async Task<TesterInfoUpdate> UpdateTesterAsync(Guid id, TesterInfoUpdate tester)
+        {
+            if(! await ExistTesterAsync(id))
+            {
+                return null;
+            }
+            var updatedTester=_mapper.Map<TesterInfoDTO>(tester);
+            updatedTester.TesterID = id;
+            _context.Update(updatedTester);
+            await _context.SaveChangesAsync();
+            return tester;
+        }
+        private async Task<bool> ExistTesterAsync(Guid id)
+        {
+            return await _context.Testers.CountAsync(a => a.TesterID == id) > 0;
+        }
+
+        public Task<TesterInfoUpdate> UpdatePartiallyTesterAsync(Guid id, TesterInfoUpdate tester)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteTesterAsync(Guid id)
+        {
+            TesterInfoDTO tester= await GetTesterInfoByIdAsync(id);
+            if(tester== null) 
+            {
+                return false;
+            }
+            _context.Testers.Remove(tester);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

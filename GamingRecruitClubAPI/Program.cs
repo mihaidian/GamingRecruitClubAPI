@@ -22,6 +22,8 @@ builder.Services.AddTransient<IGameInfosService, GameInfosService>();
 builder.Services.AddTransient<ITesterInfosRepository, TesterInfosRepository>();
 builder.Services.AddTransient<ITesterInfosService, TesterInfosService>();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 
 
