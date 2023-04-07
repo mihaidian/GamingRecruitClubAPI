@@ -130,7 +130,7 @@ display:none
 }
 #operations-CompanyInfos-get_api_CompanyInfos__id_ > div > button > span.opblock-summary-path:before
 {
-    content:"Click to Get all verified Companies by ID";
+    content:"Click to Get verified Companies by ID";
     visibility:visible;
 }
 #operations-CompanyInfos-post_api_CompanyInfos > div > button > span.opblock-summary-path
@@ -184,7 +184,7 @@ display:none
 }
 
     #operations-DevInfos-get_api_DevInfos__id_ > div > button > span.opblock-summary-path:before {
-        content: "Click to Get all Game Developers by ID";
+        content: "Click to Get Game Developers by ID";
         visibility: visible;
     }
 
@@ -238,7 +238,7 @@ display:none
 }
 
     #operations-TesterInfos-get_api_TesterInfos__id_ > div > button > span.opblock-summary-path:before {
-        content: "Click to Get all Game Testers by ID";
+        content: "Click to Get Game Testers by ID";
         visibility: visible;
     }
 
@@ -292,7 +292,7 @@ display:none
 }
 
     #operations-GameInfos-get_api_GameInfos__id_ > div > button > span.opblock-summary-path:before {
-        content: "Click to Get all Game Titles by ID";
+        content: "Click to Get Game Titles by ID";
         visibility: visible;
     }
 
