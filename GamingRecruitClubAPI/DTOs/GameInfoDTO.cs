@@ -13,7 +13,7 @@ namespace GamingRecruitClubAPI.DTOs
 
 
         [Display(Name = "Added On")]
-        public DateTime AddedOn { get; set; }
+        public DateTime? AddedOn { get; set; }
 
 
         [Display(Name = "Available for test?")]
@@ -21,7 +21,7 @@ namespace GamingRecruitClubAPI.DTOs
 
 
         [Display(Name = "Dead Line")]
-        public DateTime DeadLine { get; set; }
+        public DateTime? DeadLine { get; set; }
 
 
         [Display(Name = "Available for developing?")]

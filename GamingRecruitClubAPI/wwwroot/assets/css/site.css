@@ -1,0 +1,333 @@
+﻿body {
+    background-image: url(https://wallpapers.com/images/hd/4k-gaming-phone-mona-genshin-impact-wju5n3j0fmxbjv80.jpg);
+    background-size:cover;
+}
+
+div.topbar {
+    background-color: lime !important;
+    background-image: url(https://seeklogo.com/images/G/game-zone-logo-FAC3E21978-seeklogo.com.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x:50px;
+}
+h2.title
+{
+visibility:hidden;
+}
+    h2.title::before {
+        content: "Welcome to the Gaming Recruit App - API Version (Swagger)";
+        visibility:visible;
+         color:orangered;
+    }
+    span.url
+    {
+        visibility:hidden;
+    }
+h3 {
+   color: #f5624d !important;
+}
+h4
+{
+color:blue;
+}
+.opblock-summary-get > button > span.opblock-summary-method {
+    background-color: lawngreen !important;
+}
+
+.opblock-summary-post > button > span.opblock-summary-method {
+    background-color: deepskyblue !important;
+}
+
+.opblock-summary-delete > button > span.opblock-summary-method {
+    background-color: red !important;
+}
+.opblock-summary-patch > button > span.opblock-summary-method {
+    background-color: darkorange !important;
+}
+.opblock-summary-put > button > span.opblock-summary-method {
+    background-color:  firebrick !important;
+}
+span.opblock-summary-path {
+    color: coral !important;
+}
+opblock-summary-path >
+{
+
+}
+h3#operations-tag-CompanyInfos.opblock-tag.no-desc {
+    visibility: hidden;
+}
+    h3#operations-tag-CompanyInfos.opblock-tag.no-desc:before
+    {
+        content: "Verified Companies Info";
+        visibility: visible;
+    }
+    div.parameters-container
+    {
+        background-color: white !important;
+    }
+    div.execute-wrapper
+    {
+        background-color: aliceblue !important;
+    }
+    div.responses-wrapper
+    {
+        background-color: beige !important;
+    }
+    div.model-example
+    {
+        background-color:gold;
+    }
+div.btn-group {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+div.opblock-description-wrapper {
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+h3#operations-tag-DevInfos.opblock-tag.no-desc {
+    visibility: hidden;
+}
+
+    h3#operations-tag-DevInfos.opblock-tag.no-desc:before {
+        content: "Developer Infos";
+        visibility: visible;
+    }
+h3#operations-tag-GameInfos.opblock-tag.no-desc {
+    visibility: hidden;
+}
+
+    h3#operations-tag-GameInfos.opblock-tag.no-desc:before {
+        content: "Game Title Infos";
+
+        visibility: visible;
+    }
+h3#operations-tag-TesterInfos.opblock-tag.no-desc {
+    visibility: hidden;
+}
+
+    h3#operations-tag-TesterInfos.opblock-tag.no-desc:before {
+        content: "Tester Infos";
+      visibility: visible;
+    }
+
+section.models.is-open
+{
+display:none
+}
+
+#operations-CompanyInfos-get_api_CompanyInfos > div > button > span.opblock-summary-path
+{
+    visibility:hidden;
+}
+#operations-CompanyInfos-get_api_CompanyInfos > div > button > span.opblock-summary-path:before
+{
+    content:"Click to Get all verified Companies";
+    visibility:visible;
+}
+#operations-CompanyInfos-get_api_CompanyInfos__id_ > div > button > span.opblock-summary-path
+{
+    visibility:hidden;
+}
+#operations-CompanyInfos-get_api_CompanyInfos__id_ > div > button > span.opblock-summary-path:before
+{
+    content:"Click to Get all verified Companies by ID";
+    visibility:visible;
+}
+#operations-CompanyInfos-post_api_CompanyInfos > div > button > span.opblock-summary-path
+{
+    visibility:hidden;
+}
+#operations-CompanyInfos-post_api_CompanyInfos > div > button > span.opblock-summary-path:before
+{
+    content:"Click to Post a verified Company (Admin Only)";
+    visibility:visible;
+}
+#operations-CompanyInfos-put_api_CompanyInfos__id_ > div > button > span.opblock-summary-path
+{
+    visibility:hidden;
+}
+#operations-CompanyInfos-put_api_CompanyInfos__id_ > div > button > span.opblock-summary-path:before
+{
+    content:"Click to Put/Update a verified Company";
+    visibility:visible;
+}
+#operations-CompanyInfos-patch_api_CompanyInfos__id_ > div > button > span.opblock-summary-path
+{
+    visibility:hidden;
+}
+#operations-CompanyInfos-patch_api_CompanyInfos__id_ > div > button > span.opblock-summary-path:before
+{
+    content:"Click to Patch/Update partially a verified Company";
+    visibility:visible;
+}
+#operations-CompanyInfos-delete_api_CompanyInfos__id_ > div > button > span.opblock-summary-path
+{
+    visibility:hidden;
+}
+#operations-CompanyInfos-delete_api_CompanyInfos__id_ > div > button > span.opblock-summary-path:before
+{
+    content:"Click to Delete a verified Company";
+    visibility:visible;
+}
+
+#operations-DevInfos-get_api_DevInfos > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-DevInfos-get_api_DevInfos > div > button > span.opblock-summary-path:before {
+        content: "Click to Get all Game Developers";
+        visibility: visible;
+    }
+
+#operations-DevInfos-get_api_DevInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-DevInfos-get_api_DevInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Get all Game Developers by ID";
+        visibility: visible;
+    }
+
+#operations-DevInfos-post_api_DevInfos > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-DevInfos-post_api_DevInfos > div > button > span.opblock-summary-path:before {
+        content: "Click to Post a Game Developer";
+        visibility: visible;
+    }
+
+#operations-DevInfos-put_api_DevInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-DevInfos-put_api_DevInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Put/Update a Game Developer";
+        visibility: visible;
+    }
+
+#operations-DevInfos-patch_api_DevInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-DevInfos-patch_api_DevInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Patch/Update partially a Game Developer";
+        visibility: visible;
+    }
+
+#operations-DevInfos-delete_api_DevInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-DevInfos-delete_api_DevInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Delete a Game Developer";
+        visibility: visible;
+    }
+
+#operations-TesterInfos-get_api_TesterInfos > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-TesterInfos-get_api_TesterInfos > div > button > span.opblock-summary-path:before {
+        content: "Click to Get all Game Testers";
+        visibility: visible;
+    }
+
+#operations-TesterInfos-get_api_TesterInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-TesterInfos-get_api_TesterInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Get all Game Testers by ID";
+        visibility: visible;
+    }
+
+#operations-TesterInfos-post_api_TesterInfos > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-TesterInfos-post_api_TesterInfos > div > button > span.opblock-summary-path:before {
+        content: "Click to Post a Game Tester";
+        visibility: visible;
+    }
+
+#operations-TesterInfos-put_api_TesterInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-TesterInfos-put_api_TesterInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Put/Update a Game Tester";
+        visibility: visible;
+    }
+
+#operations-TesterInfos-patch_api_TesterInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-TesterInfos-patch_api_TesterInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Patch/Update partially a Game Tester";
+        visibility: visible;
+    }
+
+#operations-TesterInfos-delete_api_TesterInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-TesterInfos-delete_api_TesterInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Delete a Game Tester";
+        visibility: visible;
+    }
+
+#operations-GameInfos-get_api_GameInfos > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-GameInfos-get_api_GameInfos > div > button > span.opblock-summary-path:before {
+        content: "Click to Get all Game Titles";
+        visibility: visible;
+    }
+
+#operations-GameInfos-get_api_GameInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-GameInfos-get_api_GameInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Get all Game Titles by ID";
+        visibility: visible;
+    }
+
+#operations-GameInfos-post_api_GameInfos > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-GameInfos-post_api_GameInfos > div > button > span.opblock-summary-path:before {
+        content: "Click to Post a Game Title";
+        visibility: visible;
+    }
+
+#operations-GameInfos-put_api_GameInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-GameInfos-put_api_GameInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Put/Update a Game Title";
+        visibility: visible;
+    }
+
+#operations-GameInfos-patch_api_GameInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-GameInfos-patch_api_GameInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Patch/Update partially a Game Title";
+        visibility: visible;
+    }
+
+#operations-GameInfos-delete_api_GameInfos__id_ > div > button > span.opblock-summary-path {
+    visibility: hidden;
+}
+
+    #operations-GameInfos-delete_api_GameInfos__id_ > div > button > span.opblock-summary-path:before {
+        content: "Click to Delete a Game Title";
+        visibility: visible;
+    }

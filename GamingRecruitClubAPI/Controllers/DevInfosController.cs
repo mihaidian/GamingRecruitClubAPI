@@ -19,7 +19,7 @@ namespace GamingRecruitClubAPI.Controllers
             _devsService = devInfosService;
             _logger = logger;
         }
-        [HttpGet(Name="See all available Games")]
+        [HttpGet]
         public async Task<IActionResult> GetAllInfosAsync()
         {
             try

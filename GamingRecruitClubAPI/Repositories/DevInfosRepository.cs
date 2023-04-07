@@ -64,6 +64,14 @@ newDev.DevID=Guid.NewGuid();
             {
                 devFromDb.LastName = dev.LastName;
             }
+            if (!string.IsNullOrEmpty(dev.GameChoice) && dev.GameChoice != devFromDb.GameChoice)
+            {
+                devFromDb.GameChoice = dev.GameChoice;
+            }
+            if (!string.IsNullOrEmpty(dev.Email) && dev.Email != devFromDb.Email)
+            {
+                devFromDb.Email = dev.Email;
+            }
             _context.Devs.Update(devFromDb);
             await _context.SaveChangesAsync();
             return dev;

@@ -147,7 +147,7 @@ namespace GamingRecruitClubAPI.Controllers
         {
             try
             {
-                _logger.LogInformation("Delete Announcement started");
+                _logger.LogInformation("Delete Game started");
                 bool result = await _gameInfosService.DeleteGameAsync(id);
                 if (result)
                 {

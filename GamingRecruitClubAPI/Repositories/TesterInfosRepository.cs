@@ -63,6 +63,14 @@ namespace GamingRecruitClubAPI.Repositories
             {
                 testerFromDb.LastName = tester.LastName;
             }
+            if (!string.IsNullOrEmpty(tester.GameChoice) && tester.GameChoice != testerFromDb.GameChoice)
+            {
+                testerFromDb.GameChoice = tester.GameChoice;
+            }
+            if (!string.IsNullOrEmpty(tester.Email) && tester.Email != testerFromDb.Email)
+            {
+                testerFromDb.Email = tester.Email;
+            }
             _context.Testers.Update(testerFromDb);
             await _context.SaveChangesAsync();
             return tester;

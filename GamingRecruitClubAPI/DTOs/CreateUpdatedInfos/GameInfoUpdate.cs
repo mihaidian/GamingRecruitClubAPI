@@ -12,13 +12,13 @@ namespace GamingRecruitClubAPI.DTOs.CreateUpdatedInfos
         public string GameName { get; set; }
 
         [Display(Name = "Added On")]
-        public DateTime AddedOn { get; set; }
+        public DateTime? AddedOn { get; set; }
 
         [Display(Name = "Available for test?")]
         public bool AvailableForTest { get; set; }
 
         [Display(Name = "Dead Line")]
-        public DateTime DeadLine { get; set; }
+        public DateTime? DeadLine { get; set; }
 
         [Display(Name = "Available for developing?")]
         public bool AvailableForDeveloping { get; set; }

@@ -61,6 +61,14 @@ namespace GamingRecruitClubAPI.Repositories
             {
                 gameFromDb.GameName = game.GameName;
             }
+            if (game.AddedOn.HasValue && game.AddedOn != gameFromDb.AddedOn)
+            {
+                gameFromDb.AddedOn = game.AddedOn;
+            }
+            if (game.DeadLine.HasValue && game.DeadLine != gameFromDb.DeadLine)
+            {
+                gameFromDb.DeadLine = game.DeadLine;
+            }
             _context.Games.Update(gameFromDb);
             await _context.SaveChangesAsync();
             return game;

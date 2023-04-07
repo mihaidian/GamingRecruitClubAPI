@@ -21,6 +21,8 @@ builder.Services.AddTransient<IGameInfosRepository, GameInfosRepository>();
 builder.Services.AddTransient<IGameInfosService, GameInfosService>();
 builder.Services.AddTransient<ITesterInfosRepository, TesterInfosRepository>();
 builder.Services.AddTransient<ITesterInfosService, TesterInfosService>();
+builder.Services.AddTransient<ICompanyInfosService, CompanyInfosService>();
+builder.Services.AddTransient<ICompanyInfosRepository, CompanyInfosRepository>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
@@ -28,12 +30,13 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 var app = builder.Build();
+app.UseStaticFiles();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c=>c.InjectStylesheet("/assets/css/site.css"));
 }
 
 app.UseHttpsRedirection();

@@ -14,6 +14,6 @@ namespace GamingRecruitClubAPI.DTOs.CreateUpdatedInfos
         public bool Recruiting { get; set; }
 
         [Display(Name = "Member Since")]
-        public DateTime MemberSince { get; set; }
+        public DateTime? MemberSince { get; set; }
     }
 }

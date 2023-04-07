@@ -10,5 +10,6 @@ namespace GamingRecruitClubAPI.DataContext
         public DbSet<DevInfoDTO> Devs { get; set; }
         public DbSet<GameInfoDTO> Games { get; set; }
         public DbSet<TesterInfoDTO> Testers { get; set; }
+        public DbSet<CompanyInfoDTO> Companies { get; set; }
     }
 }

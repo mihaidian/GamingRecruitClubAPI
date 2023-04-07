@@ -15,6 +15,6 @@ namespace GamingRecruitClubAPI.DTOs
         public bool Recruiting { get; set; }
         [Required]
         [Display(Name = "Member Since")]
-        public DateTime MemberSince { get; set; }
+        public DateTime? MemberSince { get; set; }
     }
 }

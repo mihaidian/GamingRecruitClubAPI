@@ -14,10 +14,10 @@ namespace GamingRecruitClubAPI.DTOs
 
         public string LastName { get; set; }
         [Display(Name = "Developer Experience (In years)")]
-        public int DevExperienceInYears { get; set; }
+        public int? DevExperienceInYears { get; set; }
         [Display(Name = "Game Choice")]
         public string GameChoice { get; set; }
-
+        [EmailAddress]
         public string Email { get; set; }
     }
 }
